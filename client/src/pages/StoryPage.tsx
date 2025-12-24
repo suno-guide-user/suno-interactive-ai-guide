@@ -61,20 +61,21 @@ export default function StoryPage() {
               </div>
             </Card>
 
-            {/* Manga Placeholder */}
-            <Card className="p-8 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 min-h-96 flex items-center justify-center hover:shadow-lg transition-all">
-              <div className="text-center space-y-4">
-                <div className="relative">
-                  <Music className="w-16 h-16 text-primary/30 mx-auto" />
-                  <div className="absolute inset-0 animate-pulse"></div>
-                </div>
-                <p className="text-muted-foreground">
-                  漫画第1-20ページ：導入部
-                  <br />
-                  <span className="text-sm">(画像はここに配置されます)</span>
-                </p>
-              </div>
-            </Card>
+            {/* Manga Pages 1-20 */}
+            <div className="space-y-4">
+              {Array.from({ length: 20 }, (_, i) => {
+                const pageNum = i + 1;
+                return (
+                  <div key={pageNum} className="space-y-2">
+                    <img
+                      src={`/images/page-${String(pageNum).padStart(3, '0')}.jpg`}
+                      alt={`漫画第${pageNum}ページ`}
+                      className="w-full rounded-lg border border-primary/20 shadow-md hover:shadow-lg transition-shadow"
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </TabsContent>
 
           {/* Chapter 1 */}
@@ -148,20 +149,21 @@ export default function StoryPage() {
               </div>
             </Card>
 
-            {/* Manga Placeholder */}
-            <Card className="p-8 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 min-h-96 flex items-center justify-center hover:shadow-lg transition-all">
-              <div className="text-center space-y-4">
-                <div className="relative">
-                  <Music className="w-16 h-16 text-primary/30 mx-auto" />
-                  <div className="absolute inset-0 animate-pulse"></div>
-                </div>
-                <p className="text-muted-foreground">
-                  漫画第21-50ページ：基本機能解説部
-                  <br />
-                  <span className="text-sm">(画像はここに配置されます)</span>
-                </p>
-              </div>
-            </Card>
+            {/* Manga Pages 21-50 */}
+            <div className="space-y-4">
+              {Array.from({ length: 30 }, (_, i) => {
+                const pageNum = i + 21;
+                return (
+                  <div key={pageNum} className="space-y-2">
+                    <img
+                      src={`/images/page-${String(pageNum).padStart(3, '0')}.jpg`}
+                      alt={`漫画第${pageNum}ページ`}
+                      className="w-full rounded-lg border border-primary/20 shadow-md hover:shadow-lg transition-shadow"
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </TabsContent>
 
           {/* Chapter 2 */}
@@ -241,20 +243,21 @@ export default function StoryPage() {
               </div>
             </Card>
 
-            {/* Manga Placeholder */}
-            <Card className="p-8 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 min-h-96 flex items-center justify-center hover:shadow-lg transition-all">
-              <div className="text-center space-y-4">
-                <div className="relative">
-                  <Music className="w-16 h-16 text-primary/30 mx-auto" />
-                  <div className="absolute inset-0 animate-pulse"></div>
-                </div>
-                <p className="text-muted-foreground">
-                  漫画第51-80ページ：実践・応用部
-                  <br />
-                  <span className="text-sm">(画像はここに配置されます)</span>
-                </p>
-              </div>
-            </Card>
+            {/* Manga Pages 51-80 */}
+            <div className="space-y-4">
+              {Array.from({ length: 30 }, (_, i) => {
+                const pageNum = i + 51;
+                return (
+                  <div key={pageNum} className="space-y-2">
+                    <img
+                      src={`/images/page-${String(pageNum).padStart(3, '0')}.jpg`}
+                      alt={`漫画第${pageNum}ページ`}
+                      className="w-full rounded-lg border border-primary/20 shadow-md hover:shadow-lg transition-shadow"
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </TabsContent>
 
           {/* Chapter 3 */}
