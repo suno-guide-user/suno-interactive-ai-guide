@@ -300,17 +300,21 @@ export default function StoryPage() {
               </div>
             </Card>
 
-            {/* Manga Placeholder */}
-            <Card className="p-8 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 min-h-96 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <Music className="w-16 h-16 text-primary/30 mx-auto" />
-                <p className="text-muted-foreground">
-                  漫画第81-100ページ：結論・展開部
-                  <br />
-                  <span className="text-sm">(画像はここに配置されます)</span>
-                </p>
-              </div>
-            </Card>
+            {/* Manga Pages 81-108 */}
+            <div className="space-y-4">
+              {Array.from({ length: 28 }, (_, i) => {
+                const pageNum = i + 81;
+                return (
+                  <div key={pageNum} className="space-y-2">
+                    <img
+                      src={`/images/page-${String(pageNum).padStart(3, '0')}.jpg`}
+                      alt={`漫画第${pageNum}ページ`}
+                      className="w-full rounded-lg border border-primary/20 shadow-md hover:shadow-lg transition-shadow"
+                    />
+                  </div>
+                );
+              })}
+            </div>
 
             {/* Conclusion */}
             <Card className="p-8 border-primary/20 bg-gradient-to-br from-accent/5 to-primary/5">
