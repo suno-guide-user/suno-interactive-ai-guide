@@ -1,38 +1,42 @@
+import { useState } from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import Navigation from "@/components/Navigation";
+import Home from "@/pages/Home";
+import StoryPage from "@/pages/StoryPage";
+import EditorPage from "@/pages/EditorPage";
+import SamplesPage from "@/pages/SamplesPage";
+import WorksheetPage from "@/pages/WorksheetPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-
-
-function Router() {
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
+  const [activeSection, setActiveSection] = useState('home');
+
+  const renderPage = () => {
+    switch (activeSection) {
+      case 'story':
+        return <StoryPage />;
+      case 'editor':
+        return <EditorPage />;
+      case 'samples':
+        return <SamplesPage />;
+      case 'worksheet':
+        return <WorksheetPage />;
+      default:
+        return <Home onNavigate={setActiveSection} />;
+    }
+  };
+
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
+          <main>
+            {renderPage()}
+          </main>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
