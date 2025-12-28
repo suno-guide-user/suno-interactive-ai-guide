@@ -47,6 +47,14 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
               {section.label}
             </Button>
           ))}
+          <a
+            href="https://www.amazon.co.jp/dp/B0GCJ5GJPD"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 pl-4 border-l border-primary/20 text-primary hover:text-accent transition-colors text-sm font-medium"
+          >
+            Kindle で購入
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -78,6 +86,14 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
                 {section.label}
               </Button>
             ))}
+            <a
+              href="https://www.amazon.co.jp/dp/B0GCJ5GJPD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-accent transition-colors text-sm font-medium py-2 px-4"
+            >
+              📖 Kindle で購入
+            </a>
           </div>
         </div>
       )}

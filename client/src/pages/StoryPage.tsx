@@ -1,6 +1,6 @@
-import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BookOpen, Music, ArrowRight } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 export default function StoryPage() {
   return (
@@ -342,6 +342,35 @@ export default function StoryPage() {
                 </div>
               </div>
             </Card>
+
+            {/* Kindle Banner */}
+            <div className="mt-8">
+              <a
+                href="https://www.amazon.co.jp/dp/B0GCJ5GJPD"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <Card className="p-6 md:p-8 border-primary/30 hover:border-primary/60 transition-all duration-300 bg-gradient-to-r from-primary/5 to-accent/5 hover:shadow-lg">
+                  <div className="flex flex-col md:flex-row items-center gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="text-4xl">📖</div>
+                    </div>
+                    <div className="flex-grow text-center md:text-left">
+                      <h3 className="text-lg md:text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                        Kindle でも読む
+                      </h3>
+                      <p className="text-sm md:text-base text-muted-foreground mt-1">
+                        このストーリーは Kindle 電子書籍でも販売されています。いつでもどこでも、あなたのペースで読み進めることができます。
+                      </p>
+                    </div>
+                    <div className="flex-shrink-0 text-primary group-hover:text-accent transition-colors">
+                      <ArrowRight className="w-6 h-6" />
+                    </div>
+                  </div>
+                </Card>
+              </a>
+            </div>
           </TabsContent>
         </Tabs>
       </div>
